@@ -4,7 +4,8 @@ import streamlit as st
 st.set_page_config(
     page_title="Accueil",
     page_icon="🏠",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
 
@@ -56,6 +57,22 @@ Utilisez le **menu de gauche** pour accéder aux différentes vues :
 ℹ️ *Les graphiques et indicateurs s’adaptent automatiquement à vos sélections (zone, période).*
 """
 )
+st.markdown("""
+    <style>
+        /* Supprime la limite de hauteur de la liste des pages */
+        [data-testid="stSidebarNav"] {
+            max-height: none !important;
+        }
+        /* Optionnel : réduit l'espace vide tout en haut de la sidebar */
+        [data-testid="stSidebarNav"] ul {
+            padding-top: 0rem;
+        }
+        /* Supprime les marges excessives du bloc auteur */
+        [data-testid="stSidebar"] .stMarkdown {
+            padding-top: 0px;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 with st.sidebar:
     st.markdown("---")
