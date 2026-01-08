@@ -63,14 +63,6 @@ st.markdown("""
         [data-testid="stSidebarNav"] {
             max-height: none !important;
         }
-        /* Optionnel : réduit l'espace vide tout en haut de la sidebar */
-        [data-testid="stSidebarNav"] ul {
-            padding-top: 0rem;
-        }
-        /* Supprime les marges excessives du bloc auteur */
-        [data-testid="stSidebar"] .stMarkdown {
-            padding-top: 0px;
-        }
     </style>
 """, unsafe_allow_html=True)
 
