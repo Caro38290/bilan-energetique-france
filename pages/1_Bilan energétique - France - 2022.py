@@ -4,6 +4,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
+st.set_page_config(page_title="Bilan Énergétique", layout="wide")
+
+st.title("⚡ Bilan Énergétique et Part des Renouvelables")
+st.subheader("France métropolitaine – 2022")
+st.markdown("---")
+
 # Chargement des données avec cache pour optimiser les performances
 @st.cache_data
 def load_data():
@@ -157,12 +163,6 @@ fig_gauge_prod_conso = go.Figure(
 
 fig_gauge_prod_conso.show()
 
-
-st.set_page_config(page_title="Bilan Énergétique", layout="wide")
-
-st.title("⚡ Bilan Énergétique et Part des Renouvelables")
-st.subheader("France métropolitaine – 2022")
-st.markdown("---")
 
 # KPIs
 col1, col2, col3, col4 = st.columns(4)
