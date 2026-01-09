@@ -42,7 +42,7 @@ dim_communes = (
 
 
 region_selectionnee = st.selectbox(
-    "Sélectionner une région ou saisissez les premiers caractères",
+    "Sélectionnez une région ou saisissez les premiers caractères",
     sorted(dim_communes["nom_region"].unique())
 )
 
