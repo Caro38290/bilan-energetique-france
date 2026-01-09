@@ -5,6 +5,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
+st.set_page_config(page_title="Bilan Energetique Par Commune", layout="wide")
+
+st.header("⚡ Evolution Bilan Énergétique et Part des Renouvelables")
+st.header("-- Par Commune --")
+st.markdown("---")
+
 # Chargement des données avec cache pour optimiser les performances
 @st.cache_data
 def load_data():
@@ -16,15 +22,6 @@ def load_data():
 with st.spinner("Chargement des données..."):
         df_conso, df_prod, df_pop = load_data()
        
-
-
-
-st.set_page_config(page_title="Bilan Energetique Par Commune", layout="wide")
-
-st.header("⚡ Evolution Bilan Énergétique et Part des Renouvelables")
-st.header("-- Par Commune --")
-st.markdown("---")
-
 
 # Créer une table de dimension "communes" qui servira de slicer
 dim_communes = (
