@@ -70,8 +70,20 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+    <style>
+        /* Supprime la limite de hauteur de la liste des pages */
+        [data-testid="stSidebarNav"] {
+            max-height: none !important;
+        }
+        /* Optionnel : réduit l'espace vide tout en haut de la sidebar */
+        [data-testid="stSidebarNav"] ul {
+            padding-top: 0rem;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 with st.sidebar:
-    st.markdown("---")
     st.markdown(
         """
         **👤 Auteur**  
