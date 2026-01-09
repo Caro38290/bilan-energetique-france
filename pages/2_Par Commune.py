@@ -1,5 +1,4 @@
 # Importation des bibliothèques nécessaires
-from matplotlib.style import use
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
