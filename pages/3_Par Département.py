@@ -43,7 +43,7 @@ dim_communes = (
 
 
 departement_selectionne = st.selectbox(
-    "Sélectionner un département ou saisissez les premiers caractères",
+    "Sélectionnez un département ou saisissez les premiers caractères",
     sorted(dim_communes["nom_departement"].unique())
 )
 
