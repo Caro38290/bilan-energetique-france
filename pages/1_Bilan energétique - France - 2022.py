@@ -4,7 +4,11 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
-st.set_page_config(page_title="Bilan Énergétique", layout="wide")
+st.set_page_config(
+    page_title="Bilan Énergétique", 
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 st.title("⚡ Bilan Énergétique et Part des Renouvelables")
 st.subheader("France métropolitaine – 2022")
