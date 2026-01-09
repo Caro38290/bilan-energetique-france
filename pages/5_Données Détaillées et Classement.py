@@ -314,13 +314,13 @@ if zone == "Région":
             "nom_region": "Nom Région",
             "code_region": "Code Région",
             "Conso totale (MWh)": st.column_config.NumberColumn(
-                "Conso totale (MWh)", format="%.2f"
+                "Conso totale (MWh)", format="%,d"
             ),
             "prod_totale": st.column_config.NumberColumn(
-                "Prod totale (MWh)", format="%.2f"
+                "Prod totale (MWh)", format="%,d"
             ),
             "Population": st.column_config.NumberColumn(
-                "Population moyenne", format="%d"
+                "Population moyenne", format="%,d"
             ),
             "ratio_autoproduction": st.column_config.NumberColumn(
                 "Ratio d'autoproduction (%)", format="%.2f%%"
