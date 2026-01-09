@@ -4,6 +4,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
+st.set_page_config(page_title="Bilan Energetique Par Département", layout="wide")
+
+st.header("⚡ Evolution Bilan Énergétique et Part des Renouvelables")
+st.header("-- Par Département --")
+st.markdown("---")
+
 # Chargement des données avec cache pour optimiser les performances
 @st.cache_data
 def load_data():
@@ -27,13 +33,6 @@ dim_communes = (
     ]]
     .drop_duplicates()
 )
-
-
-st.set_page_config(page_title="Bilan Energetique Par Département", layout="wide")
-
-st.header("⚡ Evolution Bilan Énergétique et Part des Renouvelables")
-st.header("-- Par Département --")
-st.markdown("---")
 
 
 # Sélection du département via un selectbox dans streamlit
