@@ -57,19 +57,24 @@ Utilisez le **menu de gauche** pour accéder aux différentes vues :
 ℹ️ *Les graphiques et indicateurs s’adaptent automatiquement à vos sélections (zone, période).*
 """
 )
-st.markdown("""
-    <style>
-        /* Supprime la limite de hauteur de la liste des pages */
-        [data-testid="stSidebarNav"] {
-            max-height: none !important;
-        }
-        /* Optionnel : réduit l'espace vide tout en haut de la sidebar */
-        [data-testid="stSidebarNav"] ul {
-            padding-top: 0rem;
-        }
-    </style>
-""", unsafe_allow_html=True)
 
+st.markdown("---")
+
+st.markdown(
+    """
+### 🔗 Sources des données
+
+Pour la réalisation de ce bilan, les jeux de données officiels suivants ont été utilisés :
+
+* 📊 **Données Énergie (Data.gouv.fr)** : [Portail global des données de l'énergie](https://www.data.gouv.fr/pages/donnees-energie/)
+* ⚡ **Production** : [Production électrique annuelle par filière à la maille commune](https://www.data.gouv.fr/datasets/production-electrique-annuelle-par-filiere-a-la-maille-commune/)
+* 🔌 **Consommation** : [Consommation annuelle d'électricité et gaz par commune](https://www.data.gouv.fr/datasets/consommation-annuelle-delectricite-et-gaz-par-commune/)
+* 👥 **Démographie** : [Population municipale des communes (INSEE)](https://www.data.gouv.fr/datasets/population-municipale-des-communes-france-entiere/) & [Statistiques détaillées](https://www.insee.fr/fr/statistiques/8581810?sommaire=8581933)
+* 🗺️ **Géographie** : [API Découpage administratif (Etalab)](https://geo.api.gouv.fr/decoupage-administratif)
+
+---
+"""
+)
 st.markdown("""
     <style>
         /* Supprime la limite de hauteur de la liste des pages */
