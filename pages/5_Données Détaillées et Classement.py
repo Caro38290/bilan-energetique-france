@@ -333,6 +333,19 @@ if zone == "Région":
 st.write("A noter: Vous pouvez trier les données en cliquant sur les en-têtes de colonne et faire défiler les résultats à l'aide de l'ascenseur"
         "sur la droite du tableau.")
 
+st.markdown("""
+    <style>
+        /* Supprime la limite de hauteur de la liste des pages */
+        [data-testid="stSidebarNav"] {
+            max-height: none !important;
+        }
+        /* Optionnel : réduit l'espace vide tout en haut de la sidebar */
+        [data-testid="stSidebarNav"] ul {
+            padding-top: 0rem;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 with st.sidebar:
     st.markdown(
         """
