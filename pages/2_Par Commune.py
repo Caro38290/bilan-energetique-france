@@ -343,4 +343,15 @@ fig.update_layout(
 st.write("##### Évolution de la production et de la consommation par habitant vs Evolution du nombre d'habitants")
 st.plotly_chart(fig, use_container_width=True)
 
+with st.sidebar:
+    st.markdown(
+        """
+        **👤 Auteur**  
+        *Caroline NARDY*  
+
+        📧 [caroline.nardy@orange.fr](mailto:caroline.nardy@orange.fr)  
+        🔗 [LinkedIn](https://www.linkedin.com/in/caroline-nardy/)  
+        💻 [GitHub](https://github.com/Caro38290)
+        """
+    )
 
