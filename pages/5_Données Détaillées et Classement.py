@@ -5,7 +5,11 @@ import plotly.graph_objects as go
 import pandas as pd
 
 
-st.set_page_config(page_title="Bilan Energetique et Part des Renouvelables", layout="wide")
+st.set_page_config(
+    page_title="Bilan Energetique et Part des Renouvelables", 
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 st.header("⚡ Evolution Bilan Énergétique et Part des Renouvelables")
 st.header("-- Données détaillées et Classements --")
