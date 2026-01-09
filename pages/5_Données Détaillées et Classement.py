@@ -328,3 +328,15 @@ if zone == "Région":
 
 st.write("A noter: Vous pouvez trier les données en cliquant sur les en-têtes de colonne et faire défiler les résultats à l'aide de l'ascenseur"
         "sur la droite du tableau.")
+
+with st.sidebar:
+    st.markdown(
+        """
+        **👤 Auteur**  
+        *Caroline NARDY*  
+
+        📧 [caroline.nardy@orange.fr](mailto:caroline.nardy@orange.fr)  
+        🔗 [LinkedIn](https://www.linkedin.com/in/caroline-nardy/)  
+        💻 [GitHub](https://github.com/Caro38290)
+        """
+    )
