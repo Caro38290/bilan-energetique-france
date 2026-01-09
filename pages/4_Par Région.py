@@ -340,7 +340,7 @@ fig.update_layout(
 )
 
 st.write("##### Évolution de la production et de la consommation par habitant vs Evolution du nombre d'habitants")
-st.plotly_chart(fig, width="stretch")
+st.plotly_chart(fig, use_container_width=True)
 
 
 
