@@ -182,11 +182,16 @@ with col3:
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.metric("Evolution de la consommation sur la période", f"{evolution_conso_commune:.2f} %")
+    val_conso = f"{evolution_conso_commune:.2f} %" if evolution_conso_commune is not None else "N/A"
+    st.metric("Evolution de la consommation sur la période", val_conso)
+
 with col2:
-    st.metric("Evolution de la part du renouvelable sur la période", f"{evolution_pourcentage_prod_conso:.2f} %")
+    val_renouv = f"{evolution_pourcentage_prod_conso:.2f} %" if evolution_pourcentage_prod_conso is not None else "N/A"
+    st.metric("Evolution de la part du renouvelable sur la période", val_renouv)
+
 with col3:
-    st.metric("Evolution de la production totale sur la période", f"{evolution_prod_commune:.2f} %")
+    val_prod = f"{evolution_prod_commune:.2f} %" if evolution_prod_commune is not None else "N/A"
+    st.metric("Evolution de la production totale sur la période", val_prod)
 
 st.markdown("---")
 #st.plotly_chart(fig_gauge_prod_conso_commune, width="stretch")
