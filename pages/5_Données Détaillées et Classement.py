@@ -19,8 +19,8 @@ st.markdown("---")
 # Chargement des données avec cache pour optimiser les performances
 @st.cache_data
 def load_data():
-    df_conso = pd.read_csv("data/df_conso_final.csv", sep=";", encoding="utf-8")
-    df_prod = pd.read_csv("data/df_prod_final.csv", sep=";", encoding="utf-8")
+    df_conso = pd.read_parquet("data/df_conso_final.parquet")
+    df_prod = pd.read_parquet("data/df_prod_final.parquet")
     df_pop = pd.read_csv("data/df_pop_final.csv", sep=";", encoding="utf-8")
     return df_conso, df_prod, df_pop
 
