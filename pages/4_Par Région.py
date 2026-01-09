@@ -42,7 +42,7 @@ dim_communes = (
 
 
 region_selectionnee = st.selectbox(
-    "Sélectionner une région",
+    "Sélectionner une région ou saisissez les premiers caractères",
     sorted(dim_communes["nom_region"].unique())
 )
 
@@ -345,6 +345,19 @@ fig.update_layout(
 
 st.write("##### Évolution de la production et de la consommation par habitant vs Evolution du nombre d'habitants")
 st.plotly_chart(fig, use_container_width=True)
+
+st.markdown("""
+    <style>
+        /* Supprime la limite de hauteur de la liste des pages */
+        [data-testid="stSidebarNav"] {
+            max-height: none !important;
+        }
+        /* Optionnel : réduit l'espace vide tout en haut de la sidebar */
+        [data-testid="stSidebarNav"] ul {
+            padding-top: 0rem;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 with st.sidebar:
     st.markdown(
