@@ -193,3 +193,15 @@ with col2:
     st.plotly_chart(fig_evolution_prod, width="stretch")
 
 st.plotly_chart(fig_gauge_prod_conso, use_container_width=True)
+
+with st.sidebar:
+    st.markdown(
+        """
+        **👤 Auteur**  
+        *Caroline NARDY*  
+
+        📧 [caroline.nardy@orange.fr](mailto:caroline.nardy@orange.fr)  
+        🔗 [LinkedIn](https://www.linkedin.com/in/caroline-nardy/)  
+        💻 [GitHub](https://github.com/Caro38290)
+        """
+    )
