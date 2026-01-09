@@ -4,6 +4,14 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
+
+st.set_page_config(page_title="Bilan Energetique et Part des Renouvelables", layout="wide")
+
+st.header("⚡ Evolution Bilan Énergétique et Part des Renouvelables")
+st.header("-- Données détaillées et Classements --")
+st.markdown("---")
+
+
 # Chargement des données avec cache pour optimiser les performances
 @st.cache_data
 def load_data():
@@ -19,11 +27,6 @@ annees_disponibles = sorted(df_conso["annee"].unique())
 min_annee, max_annee = min(annees_disponibles), max(annees_disponibles)
 
 
-st.set_page_config(page_title="Bilan Energetique et Part des Renouvelables", layout="wide")
-
-st.header("⚡ Evolution Bilan Énergétique et Part des Renouvelables")
-st.header("-- Données détaillées et Classements --")
-st.markdown("---")
 
 # Sélection de la zone territoriale et de la période
 zone= st.radio(
