@@ -121,7 +121,7 @@ if zone == "Commune":
                 format="%.2f%%"
             ),
         },
-        width="stretch",
+        use_container_width=True,
         hide_index=True
     )
 if zone == "Département":
@@ -206,7 +206,7 @@ if zone == "Département":
                 format="%.2f%%"
             ),
         },
-        width="stretch",
+        use_container_width=True,
         hide_index=True
     )
 
@@ -322,7 +322,7 @@ if zone == "Région":
                 "Ratio d'autoproduction (%)", format="%.2f%%"
             ),
         },
-        width="stretch",
+        use_container_width=True,
         hide_index=True
     )
 
