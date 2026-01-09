@@ -172,12 +172,12 @@ st.markdown("---")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.metric("Consommation totale (MWh)", f"{format_fr(conso_totale_commune)} MWh")
+    st.metric("⚡ Consommation totale (MWh)", f"{format_fr(conso_totale_commune)} MWh")
 with col2:
-    st.metric("% Renouvelable", f"{pourcentage_prod_conso_commune:.2f} %")
+    st.metric("🌱 % Renouvelable", f"{pourcentage_prod_conso_commune:.2f} %")
 with col3:
-    st.metric("Production totale (MWh)", f"{format_fr(prod_totale_commune)} MWh")
-
+    st.metric("🏭 Production totale (MWh)", f"{format_fr(prod_totale_commune)} MWh")
+    
 col1, col2, col3 = st.columns(3)
 
 with col1:

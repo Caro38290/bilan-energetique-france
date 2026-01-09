@@ -171,9 +171,9 @@ fig_gauge_prod_conso.show()
 # KPIs
 col1, col2, col3, col4 = st.columns(4)
 
-col1.metric("Consommation totale (MWh)", f"{conso_2022/1e6:.2f} M")
+col1.metric("⚡Consommation totale (MWh)", f"{conso_2022/1e6:.2f} M")
 col2.metric("Conso par habitant (MWh)", f"{conso2022ParHab:.2f}")
-col3.metric("Production renouvelable totale (MWh)", f"{prod_2022/1e6:.2f} M")
+col3.metric("🏭 Production renouvelable totale (MWh)", f"{prod_2022/1e6:.2f} M")
 col4.metric("Prod par habitant (MWh)", f"{prod2022ParHab:.2f}")
 
 
