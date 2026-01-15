@@ -384,6 +384,10 @@ df_ratio_autoprod_dept = pd.merge(
     df_prod_dept,
     on="code_departement"
 )
+
+# On convertit en string et on complète avec un '0' pour avoir 2 caractères (ex: '1' -> '01')
+df_ratio_autoprod_dept["code_departement"] = df_ratio_autoprod_dept["code_departement"].astype(str).str.zfill(2)
+
 df_ratio_autoprod_dept["ratio_autoproduction"] = (
     df_ratio_autoprod_dept["prod_totale"] / df_ratio_autoprod_dept["Conso totale (MWh)"]
 ) * 100
