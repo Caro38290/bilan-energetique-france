@@ -357,3 +357,50 @@ with st.sidebar:
         💻 [GitHub](https://github.com/Caro38290)
         """
     )
+
+# Créer une carte chlorophète de la France montrant le ratio d'autoproduction par département pour la période sélectionnée
+# Utiliser plotly.express.choropleth pour cela
+# Charger le fichier geojson des départements français
+@st.cache_data
+def load_geojson_dept():
+    import json
+    with open("data/departements.geojson", "r", encoding="utf-8") as f:
+        geojson_dept = json.load(f)
+    return geojson_dept
+geojson_dept = load_geojson_dept()
+# Filtrer les données pour la période sélectionnée
+df_conso_dept = df_conso[
+    (df_conso["annee"].between(annee_debut, annee_fin))
+].groupby(
+    ["code_departement"], as_index=False
+)["Conso totale (MWh)"].sum()
+df_prod_dept = df_prod[
+    (df_prod["annee"].between(annee_debut, annee_fin))
+].groupby(
+    ["code_departement"], as_index=False
+)["prod_totale"].sum()
+df_ratio_autoprod_dept = pd.merge(
+    df_conso_dept,
+    df_prod_dept,
+    on="code_departement"
+)
+df_ratio_autoprod_dept["ratio_autoproduction"] = (
+    df_ratio_autoprod_dept["prod_totale"] / df_ratio_autoprod_dept["Conso totale (MWh)"]
+) * 100
+fig = px.choropleth(
+    df_ratio_autoprod_dept,
+    geojson=geojson_dept,
+    locations="code_departement",
+    color="ratio_autoproduction",
+    color_continuous_scale="Viridis",
+    range_color=(0, 100),
+    featureidkey="properties.code",
+    projection="mercator",
+    labels={"ratio_autoproduction": "Ratio d'autoproduction (%)"},
+    title=f"Ratio d'autoproduction par département ({annee_debut}-{annee_fin})"
+)
+fig.update_geos(fitbounds="locations", visible=False)
+fig.update_layout(margin={"r":0,"t":30,"l":0,"b":0})
+st.plotly_chart(fig, use_container_width=True)
+
+     
