@@ -372,7 +372,7 @@ geojson_dept = load_geojson_dept()
 df_conso_dept = df_conso[
     (df_conso["annee"].between(annee_debut, annee_fin))
 ].groupby(
-    ["code_departement"], as_index=False
+    ["code_departement",'nom_departement'], as_index=False
 )["Conso totale (MWh)"].sum()
 df_prod_dept = df_prod[
     (df_prod["annee"].between(annee_debut, annee_fin))
@@ -388,9 +388,11 @@ df_ratio_autoprod_dept = pd.merge(
 # On convertit en string et on complète avec un '0' pour avoir 2 caractères (ex: '1' -> '01')
 df_ratio_autoprod_dept["code_departement"] = df_ratio_autoprod_dept["code_departement"].astype(str).str.zfill(2)
 
+# On arrondit le ratio à 2 décimales
 df_ratio_autoprod_dept["ratio_autoproduction"] = (
-    df_ratio_autoprod_dept["prod_totale"] / df_ratio_autoprod_dept["Conso totale (MWh)"]
-) * 100
+    (df_ratio_autoprod_dept["prod_totale"] / df_ratio_autoprod_dept["Conso totale (MWh)"]) * 100
+).round(2)
+
 fig = px.choropleth(
     df_ratio_autoprod_dept,
     geojson=geojson_dept,
@@ -400,7 +402,16 @@ fig = px.choropleth(
     range_color=(0, 100),
     featureidkey="properties.code",
     projection="mercator",
-    labels={"ratio_autoproduction": "Ratio d'autoproduction (%)"},
+    hover_data={
+            "code_departement": True,  # Affiche le code
+            "nom_departement": True,   # Affiche le nom
+            "ratio_autoproduction": ":.2f" # Affiche avec 2 décimales et ajoute le suffixe via labels
+        },
+        labels={
+            "ratio_autoproduction": "Ratio (%)",
+            "nom_departement": "Département",
+            "code_departement": "Code"
+        }, 
     title=f"Ratio d'autoproduction par département ({annee_debut}-{annee_fin})"
 )
 fig.update_geos(fitbounds="locations", visible=False)
